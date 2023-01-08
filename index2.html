@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>AC Cleaning Service Matching</title>
+  <style>
+    .button {
+      width: 200px;
+      height: 200px;
+      font-size: 24px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .search-bar {
+      width: 50%;
+      height: 40px;
+      font-size: 24px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      padding: 0 10px;
+    }
+    .search-button {
+      height: 40px;
+      font-size: 24px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        document.getElementById("services").innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+    
+    function showPosition(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      
+      // Use lat and lon to search for services near the user's location
+      // Example: make an HTTP request to a server-side script that searches a database of services
+      // and returns a list of services within a certain radius of the user's location
+      // Then, display the list of services on the page
+    }
+    
+    function findService() {
+      // Display a form for the user to enter their zip code and search for services in the area
+    }
+    
+    function registerService() {
+      // Display a form for the user to enter their business information and register their service
+    }
+  </script>
+</head>
+<body>
+  <h1>Find or Register an AC Cleaning Service</h1>
+  <p>Use the buttons below to find a cleaning service in your area or register your own service:</p>
+  <div>
+    <button class="button" onclick="findService()">Find a Service</button>
+  </div>
+  <div>
+    <button class="button" onclick="registerService()">Register a Service</button>
+  </div>
+  <div class="search-container">
+    <form>
+      <input type="text" class="search-bar" placeholder="Search for a service">
+      <button type="submit" class="search-button">Search</button>
+    </form> 
+  </div>
+  <button onclick="getLocation()">Find Services Near Me</button>
+  <div id="services"></div>
+</body>
+</html>
