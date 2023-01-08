@@ -1,32 +1,85 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <title>Adopt-a-Pet</title>
+  <title>AC Cleaning Service Matching</title>
+  <style>
+    .button {
+      width: 200px;
+      height: 200px;
+      font-size: 24px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    .search-bar {
+      width: 50%;
+      height: 40px;
+      font-size: 24px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      padding: 0 10px;
+    }
+    .search-button {
+      height: 40px;
+      font-size: 24px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        document.getElementById("services").innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+    
+    function showPosition(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      
+      // Use lat and lon to search for services near the user's location
+      // Example: make an HTTP request to a server-side script that searches a database of services
+      // and returns a list of services within a certain radius of the user's location
+      // Then, display the list of services on the page
+    }
+    
+    function findService() {
+      // Display a form for the user to enter their zip code and search for services in the area
+    }
+    
+    function registerService() {
+      // Display a form for the user to enter their business information and register their service
+    }
+  </script>
 </head>
 <body>
-  <h1>Welcome to Adopt-a-Pet!</h1>
-  <p>We are a nonprofit organization dedicated to helping people find and adopt the perfect pet for their family.</p>
-  <h2>Available Pets:</h2>
-  <ul>
-    <li>
-      <h3>Fluffy the Cat</h3>
-      <img src="https://scontent.fbkk5-5.fna.fbcdn.net/v/t39.30808-6/319319683_463469385975581_393159318682237260_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=BR8SUkWIlAgAX_4ipj5&_nc_ht=scontent.fbkk5-5.fna&oh=00_AfDORc0fHbvzsFvUsTnJO8SWHJP8U_HYK7WWvZ3wxKUthg&oe=63AB2781" alt="A photo of Fluffy the Cat">
-      <p>Fluffy is a 3-year-old domestic short hair. She is spayed and up to date on all of her vaccinations. Fluffy is a friendly and affectionate cat who loves to be around people. She would make a great companion for a family with children.</p>
-      <p>To adopt Fluffy, please fill out our adoption application and pay the adoption fee. We will contact you to schedule a meet and greet with Fluffy once your application has been approved.</p>
-    </li>
-    <li>
-      <h3>Barkley the Dog</h3>
-      <img src="https://scontent.fbkk5-1.fna.fbcdn.net/v/t39.30808-6/319496597_464903085832211_8223701891328645982_n.jpg?stp=dst-jpg_p526x296&_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=XdVkHQQ38IQAX9kZmCF&_nc_ht=scontent.fbkk5-1.fna&oh=00_AfDRxK04huwk1_yUoigaFxOedd4-BMrE3BUQT1HIYJto2w&oe=63AB3166" alt="A photo of Barkley the Dog">
-      <p>Barkley is a 1-year-old labrador retriever. He is neutered and up to date on all of his vaccinations. Barkley is a friendly and energetic dog who loves to play. He would make a great companion for an active family.</p>
-      <p>To adopt Barkley, please fill out our
-        adoption application and pay the adoption fee. We will contact you to schedule a meet and greet with Barkley once your application has been approved.</p>
-    </li>
-    <li>
-      <h3>Whiskers the Hamster</h3>
-      <img src="https://scontent.fbkk5-3.fna.fbcdn.net/v/t39.30808-6/318963001_463469369308916_2554070454398348208_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=pUsqfvaq0ooAX8EKWbp&tn=dQU4Q9c9npCP0kuC&_nc_ht=scontent.fbkk5-3.fna&oh=00_AfDZi6swBTjqYbMD2IX50lBR_3t_ZfG-IrKX4w5ccBhGEg&oe=63AB9C89" alt="A photo of Whiskers the Hamster">
-      <p>Whiskers is a 6-month-old Syrian hamster. He is a friendly and playful hamster who loves to explore. Whiskers would make a great pet for a family with children.</p>
-      <p>To adopt Whiskers, please fill out our adoption application and pay the adoption fee. We will contact you to schedule a meet and greet with Whiskers once your application has been approved.</p>
-    </li>
-  </ul>
+  <h1>Find or Register an AC Cleaning Service</h1>
+  <p>Use the buttons below to find a cleaning service in your area or register your own service:</p>
+  <div>
+    <button class="button" onclick="findService()">Find a Service</button>
+  </div>
+  <div>
+    <button class="button" onclick="registerService()">Register a Service</button>
+  </div>
+  <div class="search-container">
+    <form>
+      <input type="text" class="search-bar" placeholder="Search for a service">
+      <button type="submit" class="search-button">Search</button>
+    </form> 
+  </div>
+  <button onclick="getLocation()">Find Services Near Me</button>
+  <div id="services"></div>
 </body>
 </html>
